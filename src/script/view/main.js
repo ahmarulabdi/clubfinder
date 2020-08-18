@@ -1,21 +1,21 @@
-var main = function () {
-    var searchElement = document.querySelector("#searchElement");
-    var buttonSearchElement = document.querySelector("#searchButtonElement");
-    var clubListElement = document.querySelector("#clubList");
+const main = function () {
+    let searchElement = document.querySelector("#searchElement");
+    let buttonSearchElement = document.querySelector("#searchButtonElement");
+    let clubListElement = document.querySelector("#clubList");
 
-    var onButtonSearchClicked = function () {
-        var dataSource = new DataSource(renderResult, fallbackResult);
+    let onButtonSearchClicked = function () {
+        let dataSource = new DataSource(renderResult, fallbackResult);
         dataSource.searchClub(searchElement.value);
     };
 
-    var renderResult = function (results) {
+    let renderResult = function (results) {
         clubListElement.innerHTML = "";
         results.forEach(function (club) {
-            var name = club.name;
-            var fanArt = club.fanArt;
-            var description = club.description;
+            let name = club.name;
+            let fanArt = club.fanArt;
+            let description = club.description;
 
-            var clubElement = document.createElement("div");
+            let clubElement = document.createElement("div");
             clubElement.setAttribute("class", "club");
 
             clubElement.innerHTML = '<img class="fan-art-club" src="' + fanArt + '" alt="Fan Art">\n' +
@@ -27,7 +27,7 @@ var main = function () {
         })
     };
 
-    var fallbackResult = function (message) {
+    let fallbackResult = function (message) {
         clubListElement.innerHTML = "";
         clubListElement.innerHTML += '<h2 class="placeholder">' + message + '</h2>'
     };
