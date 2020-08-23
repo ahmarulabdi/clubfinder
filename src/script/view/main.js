@@ -1,12 +1,12 @@
 import DataSource from './../data/data-source.js';
 
 const main = () => {
-    const searchElement = document.querySelector("#searchElement");
-    const buttonSearchElement = document.querySelector("#searchButtonElement");
+    const searchElement = document.querySelector("search-bar");
+    
     const clubListElement = document.querySelector("#clubList");
 
     const onButtonSearchClicked = () => {
-        DataSource.searchClub(searchElement.value)
+        DataSource.searchClub(searchElement.input)
             .then(renderResult)
             .catch(fallbackResult);
     };
@@ -33,7 +33,7 @@ const main = () => {
         clubListElement.innerHTML += `<h2 class="placeholder">${message}</h2>`;
     };
 
-    buttonSearchElement.addEventListener("click", onButtonSearchClicked);
+    searchElement.clickEvent = onButtonSearchClicked;
 };
 
 export default main;
